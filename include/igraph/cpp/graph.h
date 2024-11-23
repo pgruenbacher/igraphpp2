@@ -5,10 +5,10 @@
 
 #include <cassert>
 #include <memory>
-#include <igraph/igraph_constructors.h>
-#include <igraph/igraph_datatype.h>
-#include <igraph/igraph_foreign.h>
-#include <igraph/igraph_interface.h>
+#include <igraph_constructors.h>
+#include <igraph_datatype.h>
+#include <igraph_foreign.h>
+#include <igraph_interface.h>
 #include <igraph/cpp/attributes.h>
 #include <stdexcept>
 #include <vector>

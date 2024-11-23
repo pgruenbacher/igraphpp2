@@ -1,6 +1,6 @@
 /* vim:set ts=4 sw=4 sts=4 et: */
 
-#include <igraph/igraph_components.h>
+#include <igraph_components.h>
 #include <igraph/cpp/graph.h>
 #include <igraph/cpp/analysis/components.h>
 

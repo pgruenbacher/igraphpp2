@@ -1,6 +1,6 @@
 /* vim:set ts=4 sw=4 sts=4 et: */
 
-#include <igraph/igraph_structural.h>
+#include <igraph_structural.h>
 #include <igraph/cpp/error.h>
 #include <igraph/cpp/graph.h>
 #include <igraph/cpp/generators/line_graph.h>

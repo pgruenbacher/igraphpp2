@@ -4,7 +4,7 @@
 #define IGRAPHPP_GENERATORS_DEGREE_SEQUENCE_H
 
 #include <memory>
-#include <igraph/igraph_constants.h>
+#include <igraph_constants.h>
 #include <igraph/cpp/types.h>
 #include <igraph/cpp/vector.h>
 

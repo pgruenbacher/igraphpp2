@@ -10,15 +10,15 @@
 
 namespace igraph {
 
-/// C++-style wrapper around an igraph_matrix_t
-class Matrix {
+/// C++-style wrapper around an igraph_matrix_int_t
+class MatrixInt {
 public:
-    typedef igraph_real_t* iterator;
-    typedef const igraph_real_t* const_iterator;
+    typedef igraph_int_t* iterator;
+    typedef const igraph_int_t* const_iterator;
 
 private:
-    /// The igraph_matrix_t instance encapsulated by the wrapper
-    igraph_matrix_t m_matrix;
+    /// The igraph_matrix_int_t instance encapsulated by the wrapper
+    igraph_matrix_int_t m_matrix;
 
 public:
     /*****************************/
@@ -27,17 +27,17 @@ public:
 
     /// Constructs an empty matrix
     explicit Matrix(long nrow = 0, long ncol = 0) {
-        IGRAPH_TRY(igraph_matrix_init(&m_matrix, nrow, ncol));
+        IGRAPH_TRY(igraph_matrix_int_init(&m_matrix, nrow, ncol));
     }
 
     /// Copy constructor
     Matrix(const Matrix& other) {
-        IGRAPH_TRY(igraph_matrix_init_copy(&m_matrix, &other.m_matrix));
+        IGRAPH_TRY(igraph_matrix_int_init_copy(&m_matrix, &other.m_matrix));
     }
 
     /// Destroys the matrix
     ~Matrix() {
-        igraph_matrix_destroy(&m_matrix);
+        igraph_matrix_int_destroy(&m_matrix);
     }
 
     /********************/
@@ -54,13 +54,13 @@ public:
         return &(MATRIX(m_matrix, 0, 0));
     }
 
-    /// Returns a const pointer to the internal igraph_matrix_t
-    const igraph_matrix_t* c_matrix() const {
+    /// Returns a const pointer to the internal igraph_matrix_int_t
+    const igraph_matrix_int_t* c_matrix() const {
         return &m_matrix;
     }
 
-    /// Returns a pointer to the internal igraph_matrix_t
-    igraph_matrix_t* c_matrix() {
+    /// Returns a pointer to the internal igraph_matrix_int_t
+    igraph_matrix_int_t* c_matrix() {
         return &m_matrix;
     }
 
@@ -73,7 +73,7 @@ public:
 
     /// Returns the sums of the columns
     void colsum(Vector& result) const {
-        IGRAPH_TRY(igraph_matrix_colsum(&m_matrix, result.c_vector()));
+        IGRAPH_TRY(igraph_matrix_int_colsum(&m_matrix, result.c_vector()));
     }
 
     /// Returns an iterator pointing after the last element of the matrix
@@ -88,73 +88,73 @@ public:
 
     /// Fills the matrix with the given element
     void fill(real_t element) {
-        igraph_matrix_fill(&m_matrix, element);
+        igraph_matrix_int_fill(&m_matrix, element);
     }
 
     /// Returns the given column of the matrix as a vector
     Vector getCol(integer_t index) const {
         Vector result(nrow());
-        IGRAPH_TRY(igraph_matrix_get_col(&m_matrix, result.c_vector(), index));
+        IGRAPH_TRY(igraph_matrix_int_get_col(&m_matrix, result.c_vector(), index));
         return result;
     }
 
     /// Returns the given column of the matrix as a vector
     void getCol(integer_t index, Vector& result) const {
         result.resize(nrow());
-        IGRAPH_TRY(igraph_matrix_get_col(&m_matrix, result.c_vector(), index));
+        IGRAPH_TRY(igraph_matrix_int_get_col(&m_matrix, result.c_vector(), index));
     }
 
     /// Returns the given row of the matrix as a vector
     Vector getRow(integer_t index) const {
         Vector result(ncol());
-        IGRAPH_TRY(igraph_matrix_get_row(&m_matrix, result.c_vector(), index));
+        IGRAPH_TRY(igraph_matrix_int_get_row(&m_matrix, result.c_vector(), index));
         return result;
     }
 
     /// Returns the given row of the matrix as a vector
     void getRow(integer_t index, Vector& result) const {
         result.resize(ncol());
-        IGRAPH_TRY(igraph_matrix_get_row(&m_matrix, result.c_vector(), index));
+        IGRAPH_TRY(igraph_matrix_int_get_row(&m_matrix, result.c_vector(), index));
     }
 
     /// Returns whether the matrix is symmetric
     bool isSymmetric() const {
-        return igraph_matrix_is_symmetric(&m_matrix);
+        return igraph_matrix_int_is_symmetric(&m_matrix);
     }
 
     /// Returns the minimum element of the matrix
-    igraph_real_t min() const {
-        return igraph_matrix_min(&m_matrix);
+    igraph_int_t min() const {
+        return igraph_matrix_int_min(&m_matrix);
     }
 
     /// Returns the maximum element of the matrix
-    igraph_real_t max() const {
-        return igraph_matrix_max(&m_matrix);
+    igraph_int_t max() const {
+        return igraph_matrix_int_max(&m_matrix);
     }
 
     /// Returns the maximum absolute difference between two matrices
-    igraph_real_t maxdifference(const Matrix& other) const {
-        return igraph_matrix_maxdifference(&m_matrix, &other.m_matrix);
+    igraph_int_t maxdifference(const Matrix& other) const {
+        return igraph_matrix_int_maxdifference(&m_matrix, &other.m_matrix);
     }
 
     /// Returns the number of columns of the matrix
     size_t ncol() const {
-        return igraph_matrix_ncol(&m_matrix);
+        return igraph_matrix_int_ncol(&m_matrix);
     }
 
     /// Returns the number of rows of the matrix
     size_t nrow() const {
-        return igraph_matrix_nrow(&m_matrix);
+        return igraph_matrix_int_nrow(&m_matrix);
     }
 
     /// Prints the matrix to the standard output
     void print() const {
-        igraph_matrix_print(&m_matrix);
+        igraph_matrix_int_print(&m_matrix);
     }
 
     /// Resizes the matrix
     void resize(long nrow, long ncol) {
-        IGRAPH_TRY(igraph_matrix_resize(&m_matrix, nrow, ncol));
+        IGRAPH_TRY(igraph_matrix_int_resize(&m_matrix, nrow, ncol));
     }
 
     /// Returns the sums of the rows
@@ -166,17 +166,17 @@ public:
 
     /// Returns the sums of the rows
     void rowsum(Vector& result) const {
-        IGRAPH_TRY(igraph_matrix_rowsum(&m_matrix, result.c_vector()));
+        IGRAPH_TRY(igraph_matrix_int_rowsum(&m_matrix, result.c_vector()));
     }
 
     /// Returns the size of the matrix
     size_t size() const {
-        return igraph_matrix_size(&m_matrix);
+        return igraph_matrix_int_size(&m_matrix);
     }
 
     /// Returns the sum of the elements of the matrix
-    igraph_real_t sum() const {
-        return igraph_matrix_sum(&m_matrix);
+    igraph_int_t sum() const {
+        return igraph_matrix_int_sum(&m_matrix);
     }
 
     /*************/
@@ -185,7 +185,7 @@ public:
 
     /// Assignment operator: copies the given matrix to this one
     Matrix& operator=(const Matrix& other) {
-        IGRAPH_TRY(igraph_matrix_update(&m_matrix, &other.m_matrix));
+        IGRAPH_TRY(igraph_matrix_int_update(&m_matrix, &other.m_matrix));
         return *this;
     }
 
@@ -194,14 +194,14 @@ public:
      * It is assumed that the array has the required size and it is
      * stored in the same ordering as the matrix.
      */
-    Matrix& operator=(const igraph_real_t* other) {
-        memcpy(m_matrix.data.stor_begin, other, sizeof(igraph_real_t) * size());
+    Matrix& operator=(const igraph_int_t* other) {
+        memcpy(m_matrix.data.stor_begin, other, sizeof(igraph_int_t) * size());
         return *this;
     }
 
     /// Equality check: returns true if the two matrices are equal
     bool operator==(const Matrix& other) const {
-        return igraph_matrix_is_equal(&m_matrix, &other.m_matrix);
+        return igraph_matrix_int_is_equal(&m_matrix, &other.m_matrix);
     }
 
     /// Inequality check: returns true if the two matrices are not equal
@@ -210,12 +210,12 @@ public:
     }
 
     /// Returns the element with the given row and column indices
-    igraph_real_t& operator()(integer_t ri, integer_t ci) {
+    igraph_int_t& operator()(integer_t ri, integer_t ci) {
         return MATRIX(m_matrix, ri, ci);
     }
 
     /// Returns the element with the given row and column indices (const variant)
-    igraph_real_t& operator()(integer_t ri, integer_t ci) const {
+    igraph_int_t& operator()(integer_t ri, integer_t ci) const {
         return MATRIX(m_matrix, ri, ci);
     }
 
@@ -228,32 +228,32 @@ public:
     }
 
     /// In-place addition with constant
-    Matrix& operator+=(igraph_real_t plus) {
-        igraph_matrix_add_constant(&m_matrix, plus);
+    Matrix& operator+=(igraph_int_t plus) {
+        igraph_matrix_int_add_constant(&m_matrix, plus);
         return *this;
     }
 
     /// In-place addition with matrix
     Matrix& operator+=(const Matrix& other) {
-        IGRAPH_TRY(igraph_matrix_add(&m_matrix, &other.m_matrix));
+        IGRAPH_TRY(igraph_matrix_int_add(&m_matrix, &other.m_matrix));
         return *this;
     }
 
     /// In-place subtraction
     Matrix& operator-=(const Matrix& other) {
-        IGRAPH_TRY(igraph_matrix_sub(&m_matrix, &other.m_matrix));
+        IGRAPH_TRY(igraph_matrix_int_sub(&m_matrix, &other.m_matrix));
         return *this;
     }
 
     /// In-place scaling
-    Matrix& operator*=(igraph_real_t by) {
-        igraph_matrix_scale(&m_matrix, by);
+    Matrix& operator*=(igraph_int_t by) {
+        igraph_matrix_int_scale(&m_matrix, by);
         return *this;
     }
 
     /// In-place division
-    Matrix& operator/=(igraph_real_t by) {
-        igraph_matrix_scale(&m_matrix, 1.0/by);
+    Matrix& operator/=(igraph_int_t by) {
+        igraph_matrix_int_scale(&m_matrix, 1.0/by);
         return *this;
     }
 };

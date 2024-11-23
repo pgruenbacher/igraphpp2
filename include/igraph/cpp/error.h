@@ -3,7 +3,7 @@
 #ifndef IGRAPHPP_ERROR_H
 #define IGRAPHPP_ERROR_H
 
-#include <igraph/igraph_error.h>
+#include <igraph_error.h>
 
 #define IGRAPH_TRY(call) {\
     int __result = call;    \

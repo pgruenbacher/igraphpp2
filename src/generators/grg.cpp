@@ -1,6 +1,6 @@
 /* vim:set ts=4 sw=4 sts=4 et: */
 
-#include <igraph/igraph_games.h>
+#include <igraph_games.h>
 #include <igraph/cpp/graph.h>
 #include <igraph/cpp/generators/grg.h>
 

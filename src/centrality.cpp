@@ -4,7 +4,7 @@
 #include <igraph/cpp/graph.h>
 #include <igraph/cpp/vector.h>
 #include <igraph/cpp/vertex_selector.h>
-#include <igraph/igraph_centrality.h>
+#include <igraph_centrality.h>
 
 namespace igraph {
 

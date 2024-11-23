@@ -22,7 +22,7 @@ project(igraphpp C CXX)
 # Find dependencies
 #####################################################################
 
-find_package(igraph REQUIRED)
+# find_package(igraph REQUIRED)
 
 #####################################################################
 # Compiler flags for different build configurations

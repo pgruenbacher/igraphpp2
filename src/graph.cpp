@@ -1,10 +1,10 @@
 /* vim:set ts=4 sw=4 sts=4 et: */
 
-#include <igraph/igraph_conversion.h>
-#include <igraph/igraph_foreign.h>
-#include <igraph/igraph_games.h>
-#include <igraph/igraph_operators.h>
-#include <igraph/igraph_structural.h>
+#include <igraph_conversion.h>
+#include <igraph_foreign.h>
+#include <igraph_games.h>
+#include <igraph_operators.h>
+#include <igraph_structural.h>
 #include <igraph/cpp/edge.h>
 #include <igraph/cpp/edge_selector.h>
 #include <igraph/cpp/graph.h>

@@ -1,8 +1,8 @@
 /* vim:set ts=4 sw=4 sts=4 et: */
 
-#include <igraph/igraph_attributes.h>
-#include <igraph/igraph_interface.h>
-#include <igraph/igraph_iterators.h>
+#include <igraph_attributes.h>
+#include <igraph_interface.h>
+#include <igraph_iterators.h>
 #include <igraph/cpp/attributes.h>
 #include <igraph/cpp/error.h>
 #include <igraph/cpp/ptr_vector.h>

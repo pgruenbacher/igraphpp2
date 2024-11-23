@@ -3,7 +3,7 @@
 #ifndef IGRAPHPP_VISITORS_BFS_H
 #define IGRAPHPP_VISITORS_BFS_H
 
-#include <igraph/igraph_visitor.h>
+#include <igraph_visitor.h>
 #include <igraph/cpp/types.h>
 #include <igraph/cpp/vector.h>
 

@@ -4,7 +4,7 @@
 #include <igraph/cpp/vector.h>
 #include <igraph/cpp/vector_bool.h>
 #include <igraph/cpp/vector_int.h>
-#include <igraph/igraph_matching.h>
+#include <igraph_matching.h>
 
 namespace igraph {
 

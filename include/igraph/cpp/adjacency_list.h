@@ -4,7 +4,7 @@
 #define IGRAPHPP_ADJACENCY_LIST_H
 
 #include <stdexcept>
-#include <igraph/igraph_adjlist.h>
+#include <igraph_adjlist.h>
 #include <igraph/cpp/graph.h>
 #include <igraph/cpp/types.h>
 #include <igraph/cpp/util.h>

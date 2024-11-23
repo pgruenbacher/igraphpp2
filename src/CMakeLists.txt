@@ -15,6 +15,8 @@ add_library(
     analysis/components.cpp
     analysis/non_simple.cpp
 
+    analysis/community.cpp
+
     generators/degree_sequence.cpp
     generators/erdos_renyi.cpp
     generators/famous.cpp
@@ -34,14 +36,17 @@ add_library(
 )
 target_include_directories(
     igraphpp PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include
 )
+
+message("CMAKE_PROJECT_SOURCE_DIR? ${PROJECT_SOURCE_DIR}")
+
 target_include_directories(
     igraphpp PRIVATE
     ${CMAKE_BINARY_DIR}/include
 )
 target_link_libraries(
     igraphpp PUBLIC
-    igraph::igraph
+    igraph
 )
 

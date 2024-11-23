@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string>
-#include <igraph/igraph_strvector.h>
+#include <igraph_strvector.h>
 #include <igraph/cpp/error.h>
 #include <igraph/cpp/types.h>
 

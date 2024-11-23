@@ -4,7 +4,7 @@
 #define IGRAPHPP_VECTOR_BOOL_H
 
 #include <cstring>
-#include <igraph/igraph_vector.h>
+#include <igraph_vector.h>
 #include <igraph/cpp/error.h>
 #include <igraph/cpp/types.h>
 
